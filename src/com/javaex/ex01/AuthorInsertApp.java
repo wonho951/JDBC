@@ -10,6 +10,8 @@ public class AuthorInsertApp {
 
 	public static void main(String[] args) {
 
+		//쿼리문으로 자바에서 insert하기
+		
 		// insert into author values(seq_author_id.nextval, '김영하', '알쓸신잡');
 
 		// 0. import java.sql.*;
