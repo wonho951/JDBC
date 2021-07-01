@@ -6,11 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AuthorDeleteApp {
+public class AuthorSelectOneApp {
 
 	public static void main(String[] args) {
+
+		//row 하나의 정보를 가져올때
 		
-		//선생님이 하시는거
 		
 		// 0. import java.sql.*;
 		Connection conn = null;
@@ -26,18 +27,30 @@ public class AuthorDeleteApp {
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 		    // 3. SQL문 준비 / 바인딩 / 실행
-			String query = "";
-			query += " delete from author";
-			query += " where author_id = 8";
+		    String query = "";
+		    query +=" select  author_id, ";
+		    query +="         author_name,";
+		    query +="         author_desc ";
+		    query +=" from author ";
+		    query +=" where author_id = ?";
 		    
+		    pstmt = conn.prepareStatement(query);
+		    pstmt.setInt(1, 5);
+		    
+		    
+		    rs = pstmt.executeQuery();
+		    
+		    while(rs.next()) {
+		    	int authorId = rs.getInt("author_id");
+		    	String authorName = rs.getString("author_name");
+		    	String authorDesc = rs.getString("author_desc");
+		    			
+    			System.out.println(authorId + ", " + authorName + ", " + authorDesc);
+		    }
+		    
+		    
+		    // 4.결과처리
 
-			pstmt = conn.prepareStatement(query);
-			int count = pstmt.executeUpdate();
-			
-			// 4.결과처리
-			
-			System.out.println(count + "건이 삭제되었습니다.");	//->결과출력.
-			
 		} catch (ClassNotFoundException e) {
 		    System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {
@@ -60,7 +73,6 @@ public class AuthorDeleteApp {
 		    }
 
 		}
-
 
 	}
 
