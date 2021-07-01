@@ -31,7 +31,7 @@ public class BookSelectApp {
 			query += " select  book_id, ";
 			query += "		   title, ";
 			query += "         pubs, ";
-			query += "         pub_date, ";
+			query += "         to_char(pub_date, 'yyyy-mm-dd') as pub_date, ";
 			query += "         author_id ";
 			query += " from book ";
 			
