@@ -21,7 +21,7 @@ public class AuthorVo {
 	}
 
 
-	//메소드 /gs
+	//메소드 g/s
 	public int getAuthorId() {
 		return authorId;
 	}
@@ -45,7 +45,26 @@ public class AuthorVo {
 	public void setAuthorDesc(String authorDesc) {
 		this.authorDesc = authorDesc;
 	}
+
+
+	
 	//메소드 - 일반
+	@Override
+	public String toString() {
+		return "AuthorVo [authorId=" + authorId + ", authorName=" + authorName + ", authorDesc=" + authorDesc + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

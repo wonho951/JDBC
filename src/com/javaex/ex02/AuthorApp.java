@@ -1,5 +1,7 @@
 package com.javaex.ex02;
 
+import java.util.List;
+
 public class AuthorApp {
 
 	public static void main(String[] args) {
@@ -8,9 +10,15 @@ public class AuthorApp {
 		
 		
 		//리스트출력
-		List<> authorList = authorDao.getAuthorList();
+		List<AuthorVo> authorList = authorDao.getAuthorList();
 		//리스트를 for문으로 출력
-		
+		for(int i = 0; i < authorList.size(); i++) {
+			int authorId = authorList.get(i).getAuthorId();
+			String authorName = authorList.get(i).getAuthorName();
+			String authorDesc = authorList.get(i).getAuthorDesc();
+			
+			System.out.println(authorId + "\t" + authorName + "\t\t" + authorDesc);
+		}
 		
 		
 		
