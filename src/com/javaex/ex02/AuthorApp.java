@@ -60,9 +60,9 @@ public class AuthorApp {
 		
 		
 		
-		//리스트출력		
-		//리스트를 for문으로 출력 --> 메소드로 정의
 		//DB에서 리스트 가져오기
+		authorList = authorDao.getAuthorList();
+		//리스트를 for문으로 출력 --> 메소드로 정의
 		pritnList(authorList);
 		
 		
