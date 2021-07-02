@@ -18,8 +18,10 @@ public class AuthorApp {
 		
 		pritnList(authorList); //이걸로 메소드 만들어서 출력함.
 				
+		
 		//작가 등록	iCount 사용은 생략했음
-		int iCount = authorDao.authorInsert("김일성", "뽀글머리");
+		AuthorVo iAuthorvo = new AuthorVo("김일성", "뽀글머리");
+		int iCount = authorDao.authorInsert(iAuthorvo);
 		
 		if(iCount > 0) {	
 		System.out.println("[등록되었습니다.]");
@@ -38,7 +40,8 @@ public class AuthorApp {
 		
 		
 		//작가 수정
-		int uCount = authorDao.authorUpdate(3, "김정은", "돼지");
+		AuthorVo uAuthrVo = new AuthorVo(3, "김정은", "돼지");
+		int uCount = authorDao.authorUpdate(uAuthrVo);
 		
 		
 		
@@ -61,11 +64,11 @@ public class AuthorApp {
 		
 		
 		//리스트출력		
-		//리스트를 for문으로 출력 --> 메소드로 정의
+		
 		//DB에서 리스트 가져오기
+		authorList = authorDao.getAuthorList();
+		//리스트를 for문으로 출력 --> 메소드로 정의
 		pritnList(authorList);
-		
-		
 		
 		/*
 		//작가 한명의 정보
