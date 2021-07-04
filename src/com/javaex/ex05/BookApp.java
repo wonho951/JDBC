@@ -1,6 +1,7 @@
 package com.javaex.ex05;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class BookApp {
 
@@ -156,15 +157,36 @@ public class BookApp {
 		bookList = bookDao.getBookList();
 		bpritnList(bookList);
 		*/
+		
+		
+		///////////////////////////////////////////////
+		  
+		/* 
+		어떻게 하는거지.....하.....
+		//(2) //스캐너 통해서 사용자에게 키워드 입력받음. //"검색어를 입력해주세요" //"검색어 : 문"
+
+		//bookDao.getBookList(keyword); --> 4개 
+		//책 정보 출력되도록 //검색된 책 정보 출력
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("");
+		System.out.println("검색어를 입력하세요");
+		System.out.print("입력 : ");
+		
+		String keyword = sc.nextLine();
+		
+		
+		List<BookVo> bookSearchList = bookDao.getBookList(keyword);
+		bpritnList(bookSearchList);
+		
+		
+		
+		sc.close();
+		*/
 	}
 	
-	  ///////////////////////////////////////////////
 	  
-
-	  //(2) //스캐너 통해서 사용자에게 키워드 입력받음. //"검색어를 입력해주세요" //"검색어 : 문"
-	  
-	  //bookDao.getBookList(keyword); --> 4개 
-	  //책 정보 출력되도록 //검색된 책 정보 출력
 	 
 
 	

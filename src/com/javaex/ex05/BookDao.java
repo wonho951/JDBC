@@ -283,5 +283,61 @@ public class BookDao {
 		return bookauthorList;
 
 	}
+	
+	/*
+	//검색하기
+	public List<BookVo> getBookList(String keyword) {
+		// DB값을 가져와서 ArrayList로 전달
 
+		// 리스트 생성 -> 미리 만들어둠
+		List<BookVo> bookSearchList = new ArrayList<BookVo>();
+
+		this.getConnection();
+
+		try {
+
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " select  b.book_id, ";
+			query += "         b.title,";
+			query += "         b.pubs, ";
+			query += "         to_char(b.pub_date, 'YYYY-MM-DD') pub_date, ";
+			query += "         a.author_id, ";
+			query += " 		   a.author_name, ";
+			query += " 		   a.author_desc ";			
+			query += " from book b, author a ";
+			query += " where b.author_id = a.author_id ";
+			query += " and (b.pubs || b.title || a.author_name) like ";
+			
+			pstmt = conn.prepareStatement(query + "'%'" + keyword + "'%'");
+			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
+
+			// 4.결과처리
+
+			while (rs.next()) {
+				int bookId = rs.getInt("book_id");
+				String title = rs.getString("title");
+				String pubs = rs.getString("pubs");
+				String pubDate = rs.getString("pub_date");
+				int authorId = rs.getInt("author_id");
+				String authorName = rs.getString("author_name");
+				String authorDesc = rs.getString("author_desc");
+
+				BookVo bookVo = new BookVo(bookId, title, pubs, pubDate, authorId, authorName, authorDesc);
+
+				bookSearchList.add(bookVo);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		// 5. 자원정리
+		this.close();
+
+		return bookSearchList;
+
+	}
+*/
 }
