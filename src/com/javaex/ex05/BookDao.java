@@ -37,7 +37,7 @@ public class BookDao {
 
 			// 2. Connection 얻어오기
 			conn = DriverManager.getConnection(url, id, pw);
-			System.out.println("접속성공");
+			
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -86,7 +86,7 @@ public class BookDao {
 			query += " select  book_id, ";
 			query += "         title,";
 			query += "         pubs, ";
-			query += "         pub_date, ";
+			query += "         to_char(pub_date, 'yyyy-mm-dd') as pub_date, ";
 			query += "         author_id ";
 			query += " from book ";
 			query += " order by book_id asc ";
@@ -158,7 +158,7 @@ public class BookDao {
 		return count; // 성공갯수 리턴
 	}
 
-	// 작가 수정하기
+	// 책 수정하기
 	public int bookUpdate(BookVo bookVo) {
 
 		int count = -1;
@@ -171,8 +171,8 @@ public class BookDao {
 			String query = "";
 			query += " update book ";
 			query += " set    title = ?, ";
-			query += "        pubs = ? ";
-			query += "        pubs_date = ? ";
+			query += "        pubs = ?, ";
+			query += "        to_char(pub_date, 'yyyy-mm-dd') as pub_date = ?, ";
 			query += "        author_id = ? ";
 			query += " where book_id = ? ";
 

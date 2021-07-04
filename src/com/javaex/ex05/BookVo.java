@@ -18,7 +18,18 @@ public class BookVo {
 		super();
 	}
 
+
 	
+	public BookVo(String title, String pubs, String pubDate, int authorId) {
+		super();
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorId = authorId;
+	}
+
+
+
 	public BookVo(int bookId, String title, String pubs, String pubDate, int authorId) {
 		super();
 		this.bookId = bookId;

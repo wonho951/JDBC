@@ -39,7 +39,6 @@ public class AuthorDao {
 
 		    // 2. Connection 얻어오기
 			conn = DriverManager.getConnection(url, id, pw);
-			System.out.println("접속성공");
 			
 		} catch (ClassNotFoundException e) {
 		    System.out.println("error: 드라이버 로딩 실패 - " + e);
