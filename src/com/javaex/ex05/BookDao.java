@@ -198,7 +198,7 @@ public class BookDao {
 		return count;
 	}
 
-	// 작가 삭제하기
+	// 책 삭제하기
 	public int bookDelete(int bookId) {
 		int count = -1;
 
@@ -226,6 +226,62 @@ public class BookDao {
 		this.close();
 
 		return count;
+	}
+	
+	
+	
+	
+	//책,작가리스트
+	public List<BookVo> getBookAuthorList() {
+		// DB값을 가져와서 ArrayList로 전달
+
+		// 리스트 생성 -> 미리 만들어둠
+		List<BookVo> bookauthorList = new ArrayList<BookVo>();
+
+		this.getConnection();
+
+		try {
+
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " select  b.book_id, ";
+			query += "         b.title,";
+			query += "         b.pubs, ";
+			query += "         to_char(b.pub_date, 'YYYY-MM-DD') pub_date, ";
+			query += "         a.author_id, ";
+			query += " 		   a.author_name, ";
+			query += " 		   a.author_desc ";			
+			query += " from book b, author a ";
+			query += " where b.author_id = a.author_id ";
+			
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			// 4.결과처리
+
+			while (rs.next()) {
+				int bookId = rs.getInt("book_id");
+				String title = rs.getString("title");
+				String pubs = rs.getString("pubs");
+				String pubDate = rs.getString("pub_date");
+				int authorId = rs.getInt("author_id");
+				String authorName = rs.getString("author_name");
+				String authorDesc = rs.getString("author_desc");
+
+				BookVo bookVo = new BookVo(bookId, title, pubs, pubDate, authorId, authorName, authorDesc);
+
+				bookauthorList.add(bookVo);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		// 5. 자원정리
+		this.close();
+
+		return bookauthorList;
+
 	}
 
 }
