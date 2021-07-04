@@ -39,8 +39,42 @@ public class BookApp {
 		//리스트를 for문으로 출력 --> 메소드로 정의 
 		pritnList(authorList);
 	  
-	  
-	  
+		/*
+		//작가 등록
+		System.out.println("");
+		System.out.println("작가 등록");
+		
+		AuthorVo iAuthorvo = new AuthorVo("최원호", "백수");
+		int iCount = authorDao.authorInsert(iAuthorvo);
+
+		//출력
+		authorList = authorDao.getAuthorList();
+		pritnList(authorList);
+		
+		
+		//작가수정
+		System.out.println("");
+		System.out.println("작가 수정");
+		
+		AuthorVo uAuthrVo = new AuthorVo(7, "최원호", "멸치");
+		int uCount = authorDao.authorUpdate(uAuthrVo);
+
+		//출력
+		authorList = authorDao.getAuthorList(); 		
+		pritnList(authorList);
+		
+		
+		//작가 삭제
+		System.out.println("");
+		System.out.println("작가 삭제");
+		int dCount = authorDao.authorDelete(7);
+		
+		//출력
+		authorList = authorDao.getAuthorList(); 		
+		pritnList(authorList);
+	    */
+		
+		
 		//bookDao.bookInsert(); 책 데이터 추가(8개)
 	  
 		BookDao bookDao = new BookDao();
@@ -76,10 +110,6 @@ public class BookApp {
 		bookList = bookDao.getBookList();
 		bpritnList(bookList);
 	  
-	  
-		
-		
-		
 		//책,작가 한번에 조회
 		System.out.println("");
 		System.out.println("**************");
@@ -92,10 +122,42 @@ public class BookApp {
 		bookauthorList = bookDao.getBookAuthorList();
 		bapritnList(bookauthorList);
 
+		/*
+		// 책 수정, 삭제 각자 알아서 테스트	
+		//작가 등록
+		System.out.println("");
+		System.out.println("책 등록");
+		
+		BookVo iBookvo = new BookVo("생일이지나부렀다", "내태어난날", "1992-07-03", 7);
+		int insertCount = bookDao.bookInsert(iBookvo);
+
+		//출력
+		bookList = bookDao.getBookList();
+		bpritnList(bookList);
+		
+		//책 수정
+		System.out.println("");
+		System.out.println("책 수정");
+		
+		BookVo uBookvo = new BookVo("면목동 불주먹", "조대근ㅋ", "2021-07-04", 7, 9);
+		int updateCount = bookDao.bookUpdate(uBookvo);
+
+		//출력
+		bookList = bookDao.getBookList();
+		bpritnList(bookList);
+		
+		
+		//책 삭제
+		System.out.println("");
+		System.out.println("책 삭제");
+		int deleteCount = bookDao.bookDelete(9);
+		
+		//출력
+		bookList = bookDao.getBookList();
+		bpritnList(bookList);
+		*/
 	}
 	
-	   // 책 수정, 삭제 각자 알아서 테스트		
-	  
 	  ///////////////////////////////////////////////
 	  
 

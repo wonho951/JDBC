@@ -172,7 +172,7 @@ public class BookDao {
 			query += " update book ";
 			query += " set    title = ?, ";
 			query += "        pubs = ?, ";
-			query += "        to_char(pub_date, 'yyyy-mm-dd') as pub_date = ?, ";
+			query += "        pub_date = ?, ";
 			query += "        author_id = ? ";
 			query += " where book_id = ? ";
 
