@@ -1,5 +1,10 @@
 package com.javaex.ex05;
 
+import java.util.List;
+
+import com.javaex.ex04.AuthorDao;
+import com.javaex.ex04.AuthorVo;
+
 public class BookApp {
 
 	public static void main(String[] args) {
@@ -12,8 +17,28 @@ public class BookApp {
 		
 		
 		//여기부터 시작
+		AuthorDao authorDao = new AuthorDao();
+		List<AuthorVo> authorList;
+		
 		
 		//authorDao.authorInsert(); 이용 작가 데이터 추가(6명)
+		AuthorVo authorvo1 = new AuthorVo("이문열", "경북 영양");
+		
+		AuthorVo authorvo2 = new AuthorVo("박경리", "경상남도 통영");
+		AuthorVo authorvo3 = new AuthorVo("유시민", "17대 국회의원");
+		AuthorVo authorvo4 = new AuthorVo("기안84", "기안동에서 산 84년생");
+		AuthorVo authorvo5 = new AuthorVo("강풀", "온라인 만화가 1세대");
+		AuthorVo authorvo6 = new AuthorVo("김영하", "알쓸신잡");
+		
+		authorDao.authorInsert(authorvo1);
+		authorDao.authorInsert(authorvo2);
+		authorDao.authorInsert(authorvo3);
+		authorDao.authorInsert(authorvo4);
+		authorDao.authorInsert(authorvo5);
+		authorDao.authorInsert(authorvo6);
+		
+		
+
 		
 		//bookDao.bookInsert(); 책 데이터 추가(8개)
 		
